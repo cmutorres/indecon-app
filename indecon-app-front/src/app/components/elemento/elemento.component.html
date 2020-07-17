@@ -1,0 +1,18 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+    <br>
+    <h6>Error inesperado. Vuelva a intentarlo más tarde.</h6>
+    <br>
+</div>
+
+<div *ngIf="!loading && servicio">
+    <h1>
+        <button (click)="volver()" class="btn btn-outline-secondary" type="button"><i class="fa fa-arrow-left"></i></button> ELEMENTO {{elem.key | uppercase}}</h1>
+    <h4>{{elem.name}}</h4>
+    <hr>
+
+    <small>Variación en los últimos años, presentado en la media mensual.</small>
+    <app-lineas [item]=elem.map [key]=elem.key></app-lineas>
+
+</div>

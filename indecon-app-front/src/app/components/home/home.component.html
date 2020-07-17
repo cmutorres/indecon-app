@@ -1,0 +1,35 @@
+<h1>
+    Últimos Indices de elementos </h1>
+<hr>
+<br>
+<br>
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+    <br>
+    <h6>Error inesperado. Vuelva a intentarlo más tarde.</h6>
+    <br>
+</div>
+
+<div class="card-columns animated fadeInLeft">
+    <div class="card" style="width: 18rem;" *ngFor="let item of elementos; let i=index">
+        <div class="card-body">
+            <h3 class="card-title"> {{ item.key | uppercase }}</h3>
+            <p class="card-text">{{item.name}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Unidad: {{item.unit | titlecase }} </li>
+            <li class="list-group-item">Fecha: {{item.date | longToDate | date :'dd-MM-yyyy' }}</li>
+
+            <li class="list-group-item"><i [ngClass]="{'fa fa-percentage' : item.unit==='porcentual' , 'fa fa-dollar-sign' : item.unit!=='porcentual' }">
+                                        </i> {{item.value}}</li>
+        </ul>
+        <div class="card-body">
+            <button id="btn-i" (click)="verElemento(item.key)" type="button" class="btn btn-outline-secondary btn-block">
+                Ver más...
+             </button>
+        </div>
+
+    </div>
+
+</div>

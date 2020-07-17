@@ -1,0 +1,13 @@
+<script src="node_modules/chart.js/src/chart.js"></script>
+<div>
+    <div>
+        <div *ngIf="data" style="display: block">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+        </div><br>
+        <div>
+            <button class="btn btn-outline-secondary btn-block" (click)="randomize('2019')">Año 2019</button>
+            <button class="btn btn-outline-secondary btn-block" (click)="randomize('2020')">Año 2020</button>
+        </div>
+    </div>
+</div>
